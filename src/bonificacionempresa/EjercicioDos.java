@@ -5,6 +5,8 @@
  */
 package bonificacionempresa;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author coste
@@ -139,6 +141,18 @@ public class EjercicioDos extends javax.swing.JFrame {
         // TODO add your handling code here:
         String sueldo, bon;
         double b, s, p, h;
+       
+        txtPago.setText("");
+
+        if (txtSueldo.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite el sueldo", "Error", JOptionPane.ERROR_MESSAGE);
+            txtSueldo.requestFocusInWindow();
+        
+        } else if (txtH.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite la cantidad de hijos", "Error", JOptionPane.ERROR_MESSAGE);
+            txtH.requestFocusInWindow();
+            
+        } else {
         
         s = Double.parseDouble(txtSueldo.getText());
         h = Double.parseDouble(txtH.getText());
@@ -152,6 +166,7 @@ public class EjercicioDos extends javax.swing.JFrame {
         
         sueldo = String.valueOf(p);
         txtPago.setText(sueldo);
+        }
     }//GEN-LAST:event_cmdRActionPerformed
 
     private void txtSueldoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSueldoKeyTyped
