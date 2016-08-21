@@ -110,6 +110,11 @@ public class EjercicioDos extends javax.swing.JFrame {
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtH.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtH.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtHKeyTyped(evt);
+            }
+        });
         jPanel6.add(txtH, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 70, -1));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 110, 80));
@@ -179,6 +184,17 @@ public class EjercicioDos extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txtSueldoKeyTyped
+
+    private void txtHKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHKeyTyped
+        // TODO add your handling code here:
+                char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtHKeyTyped
 
     /**
      * @param args the command line arguments
