@@ -146,31 +146,40 @@ public class EjercicioDos extends javax.swing.JFrame {
         // TODO add your handling code here:
         String sueldo, bon;
         double b, s, p, h;
-       
+
         txtPago.setText("");
 
         if (txtSueldo.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Digite el sueldo", "Error", JOptionPane.ERROR_MESSAGE);
             txtSueldo.requestFocusInWindow();
-        
+
         } else if (txtH.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Digite la cantidad de hijos", "Error", JOptionPane.ERROR_MESSAGE);
             txtH.requestFocusInWindow();
-            
+
         } else {
-        
-        s = Double.parseDouble(txtSueldo.getText());
-        h = Double.parseDouble(txtH.getText());
-        
-        b = h * 80000;
-        
-        bon = String.valueOf(b);
-        lblBon.setText(bon);
-        
-        p = s + b;
-        
-        sueldo = String.valueOf(p);
-        txtPago.setText(sueldo);
+
+            s = Double.parseDouble(txtSueldo.getText());
+            h = Double.parseDouble(txtH.getText());
+
+            if (s == 0) {
+                JOptionPane.showMessageDialog(this, "No se puede colocar 0", "Error", JOptionPane.ERROR_MESSAGE);
+                txtSueldo.requestFocusInWindow();
+            } else if (h == 0) {
+                JOptionPane.showMessageDialog(this, "No se puede colocar 0", "Error", JOptionPane.ERROR_MESSAGE);
+                txtH.requestFocusInWindow();
+            } else {
+
+                b = h * 80000;
+
+                bon = String.valueOf(b);
+                lblBon.setText(bon);
+
+                p = s + b;
+
+                sueldo = String.valueOf(p);
+                txtPago.setText(sueldo);
+            }
         }
     }//GEN-LAST:event_cmdRActionPerformed
 
@@ -187,7 +196,7 @@ public class EjercicioDos extends javax.swing.JFrame {
 
     private void txtHKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHKeyTyped
         // TODO add your handling code here:
-                char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
 
         if (!Character.isDigit(c)) {
             getToolkit().beep();
